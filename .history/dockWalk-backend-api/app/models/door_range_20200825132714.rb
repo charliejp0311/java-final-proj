@@ -1,0 +1,2 @@
+class DoorRange < ApplicationRecord
+end

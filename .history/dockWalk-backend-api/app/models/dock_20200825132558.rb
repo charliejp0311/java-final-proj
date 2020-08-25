@@ -1,0 +1,2 @@
+class Dock < ApplicationRecord
+end

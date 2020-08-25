@@ -1,3 +1,10 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
 Dock.create(section: 'east')
 Dock.create(section: 'south')
 Dock.create(section: 'west')
@@ -42,6 +49,14 @@ DoorRange.create(range: '108 - 110', dock_id: '5')
 DoorRange.create(range: '111 - 114', dock_id: '5')
 DoorRange.create(range: '115 - 116', dock_id: '5')
 
+
+
+
+
+
+
+
+''
 Door.create(number: 'D001', door_range_id: '1')
 Door.create(number: 'D002', door_range_id: '1')
 Door.create(number: 'D003', door_range_id: '1')
