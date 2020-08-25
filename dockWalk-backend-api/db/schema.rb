@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_182856) do
+ActiveRecord::Schema.define(version: 2020_08_25_201410) do
 
   create_table "docks", force: :cascade do |t|
     t.string "section"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 2020_08_25_182856) do
     t.boolean "out", default: false
     t.boolean "stage", default: false
     t.string "service_comments"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
