@@ -153,7 +153,7 @@ Door.create(number: 'D116', door_range_id: '32')
 
 doors = Door.all
 doors.each do |door|
-    door.build_inbound()
-    door.build_outbound()
+    door.inbounds.build()
+    door.outbounds.build()
     door.save
 end

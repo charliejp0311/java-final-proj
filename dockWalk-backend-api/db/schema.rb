@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_204229) do
+ActiveRecord::Schema.define(version: 2020_08_26_192608) do
+
+  create_table "discoveries", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "dock_id"
+    t.integer "door_range_id"
+    t.string "door_range_update"
+    t.integer "door_id"
+    t.string "door_update"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "docks", force: :cascade do |t|
     t.string "section"
@@ -40,7 +51,6 @@ ActiveRecord::Schema.define(version: 2020_08_25_204229) do
 
   create_table "inbounds", force: :cascade do |t|
     t.integer "door_id"
-    t.integer "user_id"
     t.boolean "used"
     t.boolean "available"
     t.integer "percent_complete"
@@ -51,7 +61,6 @@ ActiveRecord::Schema.define(version: 2020_08_25_204229) do
 
   create_table "outbounds", force: :cascade do |t|
     t.integer "door_id"
-    t.integer "user_id"
     t.boolean "used"
     t.boolean "available"
     t.integer "percent_complete"

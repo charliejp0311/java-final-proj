@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  dock_id: 1
+  door_range_id: 1
+  door_range_update: MyString
+  door_id: 1
+  door_update: MyString
+
+two:
+  user_id: 1
+  dock_id: 1
+  door_range_id: 1
+  door_range_update: MyString
+  door_id: 1
+  door_update: MyString
