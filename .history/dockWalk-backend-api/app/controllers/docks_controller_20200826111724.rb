@@ -9,9 +9,6 @@ class DocksController < ApplicationController
 
   def show
     dock = Dock.find_by(id: params[:id])
-    options = {
-      include: [:door_ranges]
-    }
-    render json: DockSerializer.new(dock, options)
+    render json: DockSerializer.new(dock)
   end
 end

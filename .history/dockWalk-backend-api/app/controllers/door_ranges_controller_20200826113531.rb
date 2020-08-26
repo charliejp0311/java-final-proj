@@ -9,9 +9,6 @@ class DoorRangesController < ApplicationController
 
   def show
     door_range = DoorRange.find_by(id: params[:id])
-    options = {
-      include: [:doors]
-    }
-    render json: DoorRangeSerializer.new(door_range,options)
+    render json: DoorRangeSerializer.new(door_range)
   end
 end

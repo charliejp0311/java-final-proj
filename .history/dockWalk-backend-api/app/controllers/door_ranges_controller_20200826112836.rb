@@ -12,6 +12,6 @@ class DoorRangesController < ApplicationController
     options = {
       include: [:doors]
     }
-    render json: DoorRangeSerializer.new(door_range,options)
+    render json: DoorRangeSerializer.new(door_range, options)
   end
 end

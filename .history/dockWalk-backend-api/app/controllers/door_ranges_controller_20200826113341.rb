@@ -1,10 +1,7 @@
 class DoorRangesController < ApplicationController
   def index
     door_ranges = DoorRange.all
-    options = {
-      include: [:doors]
-    }
-    render json: DoorRangeSerializer.new(door_ranges, options)
+    render json: DoorRangeSerializer.new(door_ranges)
   end
 
   def show
@@ -12,6 +9,6 @@ class DoorRangesController < ApplicationController
     options = {
       include: [:doors]
     }
-    render json: DoorRangeSerializer.new(door_range,options)
+    render json: DoorRangeSerializer.new(door_range, options)
   end
 end

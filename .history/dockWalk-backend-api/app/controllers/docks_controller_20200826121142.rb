@@ -2,7 +2,7 @@ class DocksController < ApplicationController
   def index
     docks = Dock.all
     options = {
-      include: [:door_ranges]
+      include: [:door_ranges, :doors]
     }
     render json: DockSerializer.new(docks, options)
   end
