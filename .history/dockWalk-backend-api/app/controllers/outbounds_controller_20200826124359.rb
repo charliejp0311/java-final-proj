@@ -6,21 +6,17 @@ class OutboundsController < ApplicationController
 
   def show
     outbound = Outbound.find_by(id: params[:id])
-    render json: OutboundSerializer.new(outbound)
   end
 
   def edit
     outbound = Outbound.find_by(id: params[:id])
-    render json: OutboundSerializer.new(outbound)
   end
 
   def create
   end
 
   def destroy
-    outbound = Outbound.find_by(id: params[:id])
-    outbound.destroy
-    # render json: OutboundSerializer.new(outbound)    
+  outbound = Outbound.find_by(id: params[:id])    
   end
 
 end

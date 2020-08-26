@@ -18,9 +18,8 @@ class OutboundsController < ApplicationController
   end
 
   def destroy
-    outbound = Outbound.find_by(id: params[:id])
-    outbound.destroy
-    # render json: OutboundSerializer.new(outbound)    
+  outbound = Outbound.find_by(id: params[:id])
+  render json: OutboundSerializer.new(outbound)    
   end
 
 end
