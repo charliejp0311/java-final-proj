@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_201410) do
+ActiveRecord::Schema.define(version: 2020_08_25_204229) do
 
   create_table "docks", force: :cascade do |t|
     t.string "section"
@@ -29,11 +29,33 @@ ActiveRecord::Schema.define(version: 2020_08_25_201410) do
   create_table "doors", force: :cascade do |t|
     t.string "number"
     t.integer "door_range_id"
-    t.boolean "serviceable", default: true
-    t.boolean "in", default: false
-    t.boolean "out", default: false
+    t.integer "inbound_id"
+    t.integer "outbound_id"
     t.boolean "stage", default: false
+    t.boolean "serviceable", default: true
     t.string "service_comments"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "inbounds", force: :cascade do |t|
+    t.integer "door_id"
+    t.integer "user_id"
+    t.boolean "used"
+    t.boolean "available"
+    t.integer "percent_complete"
+    t.integer "last_updated_by"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "outbounds", force: :cascade do |t|
+    t.integer "door_id"
+    t.integer "user_id"
+    t.boolean "used"
+    t.boolean "available"
+    t.integer "percent_complete"
+    t.integer "last_updated_by"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

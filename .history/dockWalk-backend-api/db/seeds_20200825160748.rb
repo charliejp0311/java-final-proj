@@ -1,4 +1,4 @@
-User.create(name:'cpelton',password:'cpelton')
+User.create(user:'cpelton',password:'cpelton')
 
 Dock.create(section: 'east')
 Dock.create(section: 'south')
