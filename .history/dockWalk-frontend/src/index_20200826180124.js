@@ -3,5 +3,4 @@ document.addEventListener("DOMContentLoaded", function () {
     let title = document.createElement("h2")
     title.innerText = "Welcome to the docks!"
     body.appendChild(title)
-    console.log()    
 });
