@@ -9,12 +9,11 @@ let dockCard = (sec,ranges)=> {
     let body = document.getElementById('dock')
     let div = document.createElement('div')
     div.id = 'dock-card'
-    // div.addEventListener('click',sectionClick())
     div.innerText = sec.attributes.section
     let ul = document.createElement('ul')
     for (const rng of ranges) {
         let li = document.createElement('li')
-        // li.addEventListener('click',rangeClick())
+        li.addEventListener('click',rangeClick())
         li.innerText = rng.attributes.range
         ul.appendChild(li)
     }

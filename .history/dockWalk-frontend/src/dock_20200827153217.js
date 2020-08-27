@@ -14,7 +14,7 @@ let dockCard = (sec,ranges)=> {
     let ul = document.createElement('ul')
     for (const rng of ranges) {
         let li = document.createElement('li')
-        // li.addEventListener('click',rangeClick())
+        li.addEventListener('click',rangeClick())
         li.innerText = rng.attributes.range
         ul.appendChild(li)
     }
