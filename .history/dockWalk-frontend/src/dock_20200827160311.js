@@ -1,3 +1,10 @@
+class Dock {
+    constructor (section){
+        this.section = section;
+    }
+    
+}
+
 let dockCard = (sec,ranges)=> {
     let body = document.getElementById('dock')
     let div = document.createElement('div')
@@ -26,7 +33,7 @@ let displayDocks = (docks) => {
     }
 }
 
-let fetchDocks = () => {
+function fetchDocks() {
     return fetch('http://localhost:3000/docks')
     .then(resp => resp.json())
     .then(json=> displayDocks(json))

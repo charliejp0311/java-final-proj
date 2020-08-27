@@ -1,3 +1,10 @@
+class Dock {
+    constructor (section){
+        this.section = section;
+    }
+    
+}
+
 let dockCard = (sec,ranges)=> {
     let body = document.getElementById('dock')
     let div = document.createElement('div')

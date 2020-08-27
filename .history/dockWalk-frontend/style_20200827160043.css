@@ -6,9 +6,8 @@ body {
 header {
     background-color: #FFCC00;
     color: #D40511;
-    text-align: center;
     margin: 0 auto;
-    height: 75px;
+    height: 50px;
 }
 
 header h2 {
@@ -44,15 +43,13 @@ li {
     font-size: 1.05em;
     list-style: none;
     padding-right: 20px;
-    text-align: center;
 }
 
 button {
-    font-size: 1em;
-    color: #FFCC00;
-    background-color: #D40511;
+    font-size: .65em;
+    color: #fff;
+    background-color: green;
     border-radius: 10px;
-    padding-bottom: 5px;
 }
 
 button.release {

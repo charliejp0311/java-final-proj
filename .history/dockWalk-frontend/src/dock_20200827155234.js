@@ -1,3 +1,10 @@
+class Dock {
+    constructor (section){
+        this.section = section;
+    }
+    
+}
+
 let dockCard = (sec,ranges)=> {
     let body = document.getElementById('dock')
     let div = document.createElement('div')
@@ -5,7 +12,6 @@ let dockCard = (sec,ranges)=> {
     // div.addEventListener('click',sectionClick())
     div.innerText = sec.attributes.section
     let ul = document.createElement('ul')
-    ul.innerText = "Door Ranges"
     for (const rng of ranges) {
         let li = document.createElement('li')
         // li.addEventListener('click',rangeClick())
@@ -26,7 +32,7 @@ let displayDocks = (docks) => {
     }
 }
 
-let fetchDocks = () => {
+function fetchDocks() {
     return fetch('http://localhost:3000/docks')
     .then(resp => resp.json())
     .then(json=> displayDocks(json))
