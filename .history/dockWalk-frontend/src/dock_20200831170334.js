@@ -89,7 +89,7 @@ let displaySec = (section) => {
         div.className = 'card'
         div.innerText = rng.range
         div.addEventListener('click',(e)=>{
-            displayRange(e.target.innerText.split('\n')[0])
+            debugger;
         })
         let ul = document.createElement('ul')
         let trd = drs.filter(dr=>dr.range === rng.range)

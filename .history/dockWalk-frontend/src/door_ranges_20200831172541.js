@@ -17,6 +17,6 @@ let displayRange = (range) =>{
         let ul = document.createElement('ul')
         let li = document.createElement('li')
         
-        debugger;
     }
+    debugger;
 }

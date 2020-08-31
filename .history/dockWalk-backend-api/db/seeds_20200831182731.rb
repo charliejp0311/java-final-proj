@@ -150,3 +150,10 @@ Door.create(number: 'D113', door_range_id: '31')
 Door.create(number: 'D114', door_range_id: '31')
 Door.create(number: 'D115', door_range_id: '32')
 Door.create(number: 'D116', door_range_id: '32')
+
+# doors = Door.all
+# doors.each do |door|
+#     door.build_inbound()
+#     door.build_outbound()
+#     door.save
+# end

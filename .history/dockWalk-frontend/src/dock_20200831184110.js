@@ -14,6 +14,7 @@ const drs = [];
 let displayDocks = (docks) => {
     let d = docks.data
     let inc = docks.included
+    debugger;
     let rngs = inc.filter(rng => rng.type === 'door_range')
     let ports = inc.filter(prt => prt.type === 'door')
     //docks

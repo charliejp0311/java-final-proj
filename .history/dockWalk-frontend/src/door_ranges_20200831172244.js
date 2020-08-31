@@ -16,7 +16,8 @@ let displayRange = (range) =>{
         div.innerText = dr.number
         let ul = document.createElement('ul')
         let li = document.createElement('li')
-        
         debugger;
+        
     }
+    debugger;
 }
