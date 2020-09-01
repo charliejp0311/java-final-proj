@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2020_08_26_192608) do
   create_table "door_ranges", force: :cascade do |t|
     t.string "range"
     t.integer "dock_id"
-    t.boolean "racks", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,11 +39,12 @@ ActiveRecord::Schema.define(version: 2020_08_26_192608) do
   create_table "doors", force: :cascade do |t|
     t.string "number"
     t.integer "door_range_id"
-    t.boolean "stage", default: true
-    t.boolean "inbound_present", default: true
-    t.boolean "inbound_available", default: true
-    t.boolean "outbound_present", default: true
-    t.boolean "outbound_available", default: true
+    t.boolean "racks", default: false
+    t.boolean "stage", default: false
+    t.boolean "inbound_present", default: false
+    t.boolean "inbound_available", default: false
+    t.boolean "outbound_present", default: false
+    t.boolean "outbound_available", default: false
     t.boolean "serviceable", default: true
     t.string "service_comments", default: ""
     t.datetime "created_at", precision: 6, null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_192608) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
+    t.string "user_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
