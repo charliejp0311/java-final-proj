@@ -1,5 +1,5 @@
 class Discovery {
-    constructor(dock, range, door, racks, stage, serviceable, s_comments, inbound_available, inbound_present, outbound_available, outbound_present, id = null) {
+    constructor(id = null, dock, range, door, racks, stage, serviceable, s_comments, inbound_available, inbound_present, outbound_available, outbound_present){
         this.id = id
         this.dock = dock
         this.range = range

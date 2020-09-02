@@ -1,8 +1,8 @@
 class Dock {
     constructor(id,section,ranges =[]) {
         this.id =id
-        this.section = section
-        this.ranges = ranges
+        this.section = section;
+        this.ranges = ranges;
     }
 }
 
@@ -20,33 +20,32 @@ let createDock = (docks) => {
     //docks
     for (const section of d) {
         dks.push(new Dock(section.id, section.attributes.section))//creates java object and pushes it to the dks array of docks
+        let sectionsRanges = rngs.filter(rng => rng.relationships.dock.data.id === section.id)///filtering ranges that belong to this door
+
         //ranges
-        for (const range of rngs.filter(rng => rng.relationships.dock.data.id === section.id)) {
+        for (const range of sectionsRanges) {
             ranges.push(new Range(
-                section.id,
-                section.attributes.id,
+                section.attributes.section,
                 range.attributes.range,
-                range.id,
                 range.attributes.racks
                 ))//creating a range adding it to all ranges
-            // debugger
+            let prts = ports.filter(prt => prt.relationships.door_range.data.id === range.id)//identifying a doors in this range
+
             //doors
-            for (const p of ports.filter(prt => prt.relationships.door_range.data.id === range.id)) {
+            for (const p of prts) {
                 drs.push(new Door(
-                    p.attributes.id,
-                    section.id,
-                    section.attributes.section,
-                    range.attributes.range,
-                    range.id,
-                    p.attributes.racks,
-                    p.attributes.number,
-                    p.attributes.stage,
-                    p.attributes.serviceable,
-                    p.attributes.service_comments,
-                    p.attributes.inbound_available,
-                    p.attributes.inbound_present,
-                    p.attributes.outbound_available,
-                    p.attributes.outbound_present
+                p.attributes.id,
+                section.attributes.section,
+                range.attributes.range,
+                p.attributes.racks,
+                p.attributes.number,
+                p.attributes.stage,
+                p.attributes.serviceable,
+                p.attributes.service_comments,
+                p.attributes.inbound_available,
+                p.attributes.inbound_present,
+                p.attributes.outbound_available,
+                p.attributes.outbound_present
                 ))//creating door/port in this instance started getting confused LOL needed to change it 
                 ranges[ranges['length']-1].doors.push(drs[drs.length - 1])///adding door to this ranges 'doors' array
             }//crates all doors
@@ -87,7 +86,7 @@ let dockCards = (dock) => {
     body.appendChild(div)
 }
 
-///this is the individual dock section
+///this is the individual dock
 
 let displaySec = (section) => {
     let h2 = document.getElementsByTagName('h2')[0]

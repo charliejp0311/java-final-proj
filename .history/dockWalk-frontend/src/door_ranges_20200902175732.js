@@ -1,13 +1,13 @@
 class Range extends Dock {
-    constructor(dock_id, dock_section, range, id, doors = []) {
-        super(dock_id,dock_section)
+    constructor(dock, range, doors = []) {
+        super(dks.filter(dk => dk.id === dock)[0].id, dks.filter(dk => dk.id === dock)[0].section)
         this.range = range
-        this.id = id
         this.doors = doors
     }
 }
 
 let displayRange = (range) =>{
+    debugger
     let h2 = document.getElementsByTagName('h2')[0]
     h2.innerText = `${range.range} `
     let body = document.getElementById('dock')

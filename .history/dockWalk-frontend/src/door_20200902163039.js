@@ -1,6 +1,6 @@
 class Door extends Range {
-    constructor(id,dock_id,dock_section, range, range_id, racks, number, stage, serviceable, s_comments, inbound_available, inbound_present, outbound_available, outbound_present) {
-        super(dock_id, dock_section, range, range_id)
+    constructor(id, dock, range, racks, number, stage, serviceable, s_comments, inbound_available, inbound_present, outbound_available, outbound_present) {
+        super(dock, range)
         this.id = id
         this.number = number
         this.racks = racks
@@ -17,6 +17,7 @@ class Door extends Range {
 let displayDoor = (door)=>{
     let h2 = document.getElementsByTagName('h2')[0]
     h2.innerText = `${door.number}`
+    debugger;
     let body = document.getElementById('dock')
     body.innerHTML = ""
     let div = document.createElement('div')
@@ -49,6 +50,14 @@ let doorForm = (door) => {
             checkBox.type = 'checkbox'
             let lbl = document.createElement('label')
             switch (key) {
+                case 'section':
+                    break;
+                case 'range':
+                    break;
+                case 'number':
+                    break;
+                case 'id':
+                    break;
                 case 's_comments':
                     if (element !== '' ) {
                         lbl.innerText = `${element}`
@@ -65,14 +74,16 @@ let doorForm = (door) => {
                     }
                 break;
                 default :
-                    if (element===true || element===false) {
-                        lbl.innerText = key
+                    lbl.innerText = key
+                    if (element===true) {
                         checkBox.click()
-                        checkBox.id = key
-                        form.appendChild(lbl)
-                        form.appendChild(checkBox)
-                        form.innerHTML += '<br>'
                     }
+                    checkBox.id = key
+                    form.appendChild(lbl)
+                    form.appendChild(checkBox)
+                    // checkBox.checked = element
+                    
+                    form.innerHTML += '<br>'
                 break;
             }
         }
@@ -80,8 +91,7 @@ let doorForm = (door) => {
         submit.type = 'submit'
         submit.addEventListener('click', (e)=>{
             let formElmnts = e.target.parentNode.children
-            let disc = new Discovery(door.section, door.range, door.number, formElmnts.racks.checked, formElmnts.stage.checked, formElmnts.serviceable.checked, formElmnts.s_comments, formElmnts.inbound_available.checked, formElmnts.inbound_present.checked, formElmnts.outbound_available.checked, formElmnts.outbound_present.checked)
-            debugger
+            debugger;
         })
         form.appendChild(submit)
         return form;

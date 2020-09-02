@@ -1,8 +1,7 @@
 class Range extends Dock {
-    constructor(dock_id, dock_section, range, id, doors = []) {
-        super(dock_id,dock_section)
+    constructor(dock_id, dock_section, range, doors = []) {
+        super(dock_id,dock_section  )
         this.range = range
-        this.id = id
         this.doors = doors
     }
 }

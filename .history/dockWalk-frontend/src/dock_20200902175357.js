@@ -1,8 +1,8 @@
 class Dock {
     constructor(id,section,ranges =[]) {
         this.id =id
-        this.section = section
-        this.ranges = ranges
+        this.section = section;
+        this.ranges = ranges;
     }
 }
 
@@ -23,10 +23,8 @@ let createDock = (docks) => {
         //ranges
         for (const range of rngs.filter(rng => rng.relationships.dock.data.id === section.id)) {
             ranges.push(new Range(
-                section.id,
-                section.attributes.id,
+                section,
                 range.attributes.range,
-                range.id,
                 range.attributes.racks
                 ))//creating a range adding it to all ranges
             // debugger
@@ -34,9 +32,7 @@ let createDock = (docks) => {
             for (const p of ports.filter(prt => prt.relationships.door_range.data.id === range.id)) {
                 drs.push(new Door(
                     p.attributes.id,
-                    section.id,
                     section.attributes.section,
-                    range.attributes.range,
                     range.id,
                     p.attributes.racks,
                     p.attributes.number,

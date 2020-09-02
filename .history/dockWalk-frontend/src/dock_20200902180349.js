@@ -34,9 +34,7 @@ let createDock = (docks) => {
             for (const p of ports.filter(prt => prt.relationships.door_range.data.id === range.id)) {
                 drs.push(new Door(
                     p.attributes.id,
-                    section.id,
                     section.attributes.section,
-                    range.attributes.range,
                     range.id,
                     p.attributes.racks,
                     p.attributes.number,
