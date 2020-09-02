@@ -53,8 +53,6 @@ let doorCard = (door) => {
                     break;
                 case 'range':
                     break;
-                case 'number':
-                    break;
                 case 's_comments':
                     if (element !== '' ) {
                         lbl.innerText = `${element}`
@@ -89,8 +87,7 @@ let doorCard = (door) => {
         let submit = document.createElement('input')
         submit.type = 'submit'
         submit.addEventListener('click', (e)=>{
-            let formElmnts = e.target.parentNode.children
-            debugger;
+            // debugger;
         })
         form.appendChild(submit)
         return form;

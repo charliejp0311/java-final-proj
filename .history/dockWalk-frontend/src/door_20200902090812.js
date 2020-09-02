@@ -89,7 +89,7 @@ let doorCard = (door) => {
         let submit = document.createElement('input')
         submit.type = 'submit'
         submit.addEventListener('click', (e)=>{
-            let formElmnts = e.target.parentNode.children
+            let formElmnts = e.target.parentNode
             debugger;
         })
         form.appendChild(submit)
