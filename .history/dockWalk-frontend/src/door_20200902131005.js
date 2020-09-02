@@ -21,7 +21,6 @@ let displayDoor = (door)=>{
     body.innerHTML = ""
     let div = document.createElement('div')
     div.className = 'card'
-    div.innerText = door.number
     let frm = doorForm(door)
     div.appendChild(frm)
     body.appendChild(div)
@@ -113,7 +112,7 @@ let dispDr = (door) => {
             let tre = document.createElement('tr')
             if (element === true) {
                 trk.innerText = `${key} ~`
-                tre.innerText = `${element}`
+                tre.innerText = ` ${element}`
                 tdk.appendChild(trk)
                 tde.appendChild(tre)
             }

@@ -97,7 +97,7 @@ let displaySec = (section) => {
     for (const rng of section.ranges) {
         let div = document.createElement('div')
         div.className = 'card'
-        div.id = rng.id
+        div.innerText = rng.range
         div.addEventListener('click',(e)=>{
             displayRange(ranges.filter(rng => rng.id === e.currentTarget.id)[0])
         })

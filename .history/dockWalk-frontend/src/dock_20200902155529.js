@@ -97,11 +97,32 @@ let displaySec = (section) => {
     for (const rng of section.ranges) {
         let div = document.createElement('div')
         div.className = 'card'
-        div.id = rng.id
+        div.innerText = rng.range
+        debugger
         div.addEventListener('click',(e)=>{
-            displayRange(ranges.filter(rng => rng.id === e.currentTarget.id)[0])
+            switch (e.target.tagName) {
+                case 'DIV':
+                    displayRange(e.target.innerText.split('\n')[0])
+                    break;
+                case 'UL':
+                    debugger;//displaySec(dks[e.target.parentNode.id - 1])
+                    break;
+                case 'LI':
+                    debugger;//displaySec(dks[e.target.parentNode.parentNode.id - 1])
+                    break;
+                default:
+                    break;
+            }
         })
-        div.appendChild(dispRng(rng))
+        let ul = document.createElement('ul')
+        let trd = drs.filter(dr=>dr.range === rng.range)
+        for (const dr of trd) {
+            let li = document.createElement('li')
+            li.appendChild(dispDr(dr))
+            li.id = dr.id
+            ul.appendChild(li)
+        }
+        div.appendChild(ul)
         dock.appendChild(div)
     }
 }

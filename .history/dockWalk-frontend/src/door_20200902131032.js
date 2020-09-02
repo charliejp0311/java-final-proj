@@ -113,7 +113,7 @@ let dispDr = (door) => {
             let tre = document.createElement('tr')
             if (element === true) {
                 trk.innerText = `${key} ~`
-                tre.innerText = `${element}`
+                tre.innerText = ` ${element}`
                 tdk.appendChild(trk)
                 tde.appendChild(tre)
             }

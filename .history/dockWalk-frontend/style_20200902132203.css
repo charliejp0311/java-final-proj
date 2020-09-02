@@ -28,9 +28,9 @@ main {
 
 div.card {
     background-color: #FFCC00;
-    height: auto;
-    width: auto;
-    box-shadow: 10px 10px grey;
+    height: 350px;
+    width: 300px;
+    box-shadow: 10px 10px #eeeeee;
     padding: 10px;
     border-radius: 10px;
 }

@@ -97,11 +97,20 @@ let displaySec = (section) => {
     for (const rng of section.ranges) {
         let div = document.createElement('div')
         div.className = 'card'
-        div.id = rng.id
+        div.innerText = rng.range
+        debugger
         div.addEventListener('click',(e)=>{
-            displayRange(ranges.filter(rng => rng.id === e.currentTarget.id)[0])
+            dispRng(ranges.filter(rng => rng.id === e.currentTarget.id)[0])
         })
-        div.appendChild(dispRng(rng))
+        let ul = document.createElement('ul')
+        let trd = drs.filter(dr=>dr.range === rng.range)
+        for (const dr of trd) {
+            let li = document.createElement('li')
+            li.appendChild(dispDr(dr))
+            li.id = dr.id
+            ul.appendChild(li)
+        }
+        div.appendChild(ul)
         dock.appendChild(div)
     }
 }

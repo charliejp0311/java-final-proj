@@ -1,8 +1,7 @@
 class Range extends Dock {
-    constructor(dock, range, doors = []) {
+    constructor(dock, range) {
         super(dock)
         this.range = range
-        this.doors = doors
     }
 }
 
@@ -19,15 +18,4 @@ let displayRange = (range) =>{
         div.addEventListener("click", (e)=>{ displayDoor(dr)})
         body.appendChild(div)
     }
-}
-
-let dispRng = (range) =>{
-    let div = document.createElement('div')
-    div.className = "rangeCard"
-    div.innerText = range.range
-    for (const door of range.doors) {
-        div.appendChild(dispDr(door))
-    }
-    return div
-
 }

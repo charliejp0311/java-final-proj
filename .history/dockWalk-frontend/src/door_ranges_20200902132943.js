@@ -25,9 +25,6 @@ let dispRng = (range) =>{
     let div = document.createElement('div')
     div.className = "rangeCard"
     div.innerText = range.range
-    for (const door of range.doors) {
-        div.appendChild(dispDr(door))
-    }
-    return div
+
 
 }

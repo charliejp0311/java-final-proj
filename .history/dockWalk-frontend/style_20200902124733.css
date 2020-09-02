@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #D40511;
 }
 
 header {
@@ -21,25 +20,18 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    grid-gap: 25px;
+    grid-gap: 20px;
     padding-top: 10px;
     padding-bottom: 30px;
 }
 
 div.card {
-    background-color: #FFCC00;
-    height: auto;
-    width: auto;
+    background-color: #eeeeee;
+    height: 350px;
+    width: 300px;
     box-shadow: 10px 10px grey;
     padding: 10px;
     border-radius: 10px;
-}
-
-div.doorCard {
-    /* background-color: #D40511;
-    box-shadow: 10px 10px grey;
-    padding: 10px;
-    border-radius: 10px; */
 }
 
 p {

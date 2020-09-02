@@ -16,7 +16,7 @@ class Door extends Range {
 
 let displayDoor = (door)=>{
     let h2 = document.getElementsByTagName('h2')[0]
-    h2.innerText = `${door.number}`
+    h2.innerText = `${door.number} ~ ${door.range} ~ ${door.section}`
     let body = document.getElementById('dock')
     body.innerHTML = ""
     let div = document.createElement('div')
@@ -113,7 +113,7 @@ let dispDr = (door) => {
             let tre = document.createElement('tr')
             if (element === true) {
                 trk.innerText = `${key} ~`
-                tre.innerText = `${element}`
+                tre.innerText = ` ${element}`
                 tdk.appendChild(trk)
                 tde.appendChild(tre)
             }

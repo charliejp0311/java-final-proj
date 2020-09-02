@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #D40511;
 }
 
 header {
@@ -28,8 +27,8 @@ main {
 
 div.card {
     background-color: #FFCC00;
-    height: auto;
-    width: auto;
+    height: 350px;
+    width: 300px;
     box-shadow: 10px 10px grey;
     padding: 10px;
     border-radius: 10px;

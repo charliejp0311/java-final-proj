@@ -15,9 +15,15 @@ ActiveRecord::Schema.define(version: 2020_08_26_192608) do
   create_table "discoveries", force: :cascade do |t|
     t.integer "dock_id"
     t.integer "door_range_id"
-    t.string "door_range_update"
     t.integer "door_id"
-    t.string "door_update"
+    t.boolean "racks", default: false
+    t.boolean "stage", default: false
+    t.boolean "inbound_present", default: false
+    t.boolean "inbound_available", default: false
+    t.boolean "outbound_present", default: false
+    t.boolean "outbound_available", default: false
+    t.boolean "serviceable", default: true
+    t.string "service_comments", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
