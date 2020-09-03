@@ -37,55 +37,50 @@ let displayDoor = (door)=>{
 }
 
 let doorForm = (door) => {
-    let form = document.createElement('form')
-    let comments = document.createElement('input')
-    comments.type = "text"
-    form.htmlFor = door
-    form.id = door.id
-    for (const key in door) {
-        const element = door[key];
-        let checkBox = document.createElement('input')
-        checkBox.type = 'checkbox'
+    if (door.serviceable) {
+        let form = document.createElement('form')
         let comments = document.createElement('input')
-        comments.type = 'text'
-        let lbl = document.createElement('label')
-        switch (key) {
-            case 's_comments':
-                if (!door.serviceable) {
-                    if (element !== '' && element !== null) {
+        comments.type = "text"
+        form.htmlFor = door
+        form.id = door.id
+        for (const key in door) {
+            const element = door[key];
+            let checkBox = document.createElement('input')
+            checkBox.type = 'checkbox'
+            let lbl = document.createElement('label')
+            switch (key) {
+                case 's_comments':
+                    if (element !== '' ) {
                         lbl.innerText = `${element}`
                         form.appendChild(lbl)
                         form.innerHTML += '<br>'
-                    }else{
+                    } else if(door.serviceable === false){
                         lbl.innerText = `${key} ~`
                         form.appendChild(lbl)
                         form.innerHTML += '<br>'
-                        comments.id = key
+                        let comments = document.createElement('input')
+                        comments.type = 'text'
                         form.appendChild(comments)
                         form.innerHTML += '<br>'
                     }
-                }
-                
                 break;
-            default :
-                if (element===true || element===false) {
-                    lbl.innerText = key
-                    checkBox.click()
-                    checkBox.id = key
-                    form.appendChild(lbl)
-                    form.appendChild(checkBox)
-                    form.innerHTML += '<br>'
-                }
-            break;
+                default :
+                    if (element===true || element===false) {
+                        lbl.innerText = key
+                        checkBox.click()
+                        checkBox.id = key
+                        form.appendChild(lbl)
+                        form.appendChild(checkBox)
+                        form.innerHTML += '<br>'
+                    }
+                break;
+            }
         }
-    }
-
-    let submit = document.createElement('input')
-    submit.type = 'submit'
-    submit.addEventListener('click', (e)=>{
-        let formElmnts = e.target.parentNode.children
-        if (formElmnts.s_comments) {
-            let disc = new Discovery(door.section, door.range, door.number, formElmnts.racks.checked, formElmnts.stage.checked, formElmnts.serviceable.checked, formElmnts.s_comments.value, formElmnts.inbound_available.checked, formElmnts.inbound_present.checked, formElmnts.outbound_available.checked, formElmnts.outbound_present.checked)
+        let submit = document.createElement('input')
+        submit.type = 'submit'
+        submit.addEventListener('click', (e)=>{
+            let formElmnts = e.target.parentNode.children
+            let disc = new Discovery(door.section, door.range, door.number, formElmnts.racks.checked, formElmnts.stage.checked, formElmnts.serviceable.checked, formElmnts.s_comments, formElmnts.inbound_available.checked, formElmnts.inbound_present.checked, formElmnts.outbound_available.checked, formElmnts.outbound_present.checked)
             let configObj = {
                 method: "POST",
                 headers: {
@@ -95,23 +90,11 @@ let doorForm = (door) => {
                 body: JSON.stringify(disc)
             }; 
             return fetch('http://localhost:3000/discoveries',configObj)
-        } else {
-            let disc = new Discovery(door.section, door.range, door.number, formElmnts.racks.checked, formElmnts.stage.checked, formElmnts.serviceable.checked, "", formElmnts.inbound_available.checked, formElmnts.inbound_present.checked, formElmnts.outbound_available.checked, formElmnts.outbound_present.checked)
-            let configObj = {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify(disc)
-            };
-            return fetch('http://localhost:3000/discoveries', configObj)
-        }
-    })
-    // debugger
-    form.appendChild(submit)
-    return form;
-    
+            // debugger
+        })
+        form.appendChild(submit)
+        return form;
+    }
 }
 
 
@@ -121,20 +104,25 @@ let dispDr = (door) => {
     div.innerText = door.number
     div.id = door.id
     div.innerHTML += '<br/>'
+    // div.addEventListener('click', (e)=>{})
     let tbl = document.createElement('tbl')
     let tdk = document.createElement('td')
-    let tde = document.createElement('td')
+    // let tde = document.createElement('td')
     if (door.serviceable) {
         for (const key in door) {
             if (door.hasOwnProperty(key)) {
                 if (key!=='serviceable') {
                     const element = door[key];
                     let trk = document.createElement('tr')
+                    // let tre = document.createElement('tr')
                     if (element === true) {
                         trk.innerText = `${key} `
+                        // tre.innerText = `${element}`
                         tdk.appendChild(trk)
+                        // tde.appendChild(tre)
                     }
                     tbl.appendChild(tdk)
+                    // tbl.appendChild(tde)
                 }
             }
         }
@@ -144,9 +132,9 @@ let dispDr = (door) => {
         trk.innerText = "OUT OF SERVICE"
         tre.innerText = door.s_comments
         tdk.appendChild(trk)
-        tde.appendChild(tre)
+        // tde.appendChild(tre)
         tbl.appendChild(tdk)
-        tbl.appendChild(tde)
+        // tbl.appendChild(tde)
         
     }
     div.appendChild(tbl)

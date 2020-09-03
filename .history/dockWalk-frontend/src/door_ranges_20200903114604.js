@@ -13,11 +13,13 @@ let displayRange = (range) =>{
     let body = document.getElementById('dock')
     body.innerHTML = ""
     for (const dr of range.doors) {
-        let div = document.createElement('div')
-        div.className = 'card'
-        div.appendChild(dispDr(dr))
-        div.addEventListener("click", (e)=>{ displayDoor(dr)})
-        body.appendChild(div)
+        if (dr.inbound_present === true || dr.inbound_available === true || dr.outbound_present === true || dr.outbound_available === true) {
+            let div = document.createElement('div')
+            div.className = 'card'
+            div.appendChild(dispDr(dr))
+            div.addEventListener("click", (e)=>{ displayDoor(dr)})
+            body.appendChild(div)
+        }
     }
 }
 
@@ -27,9 +29,7 @@ let dispRng = (range) =>{
     div.id = range.id
     div.innerText = range.range
     for (const door of range.doors) {
-        if (door.stage === true || door.racks === true || door.inbound_present === true || door.inbound_available === true || door.outbound_present === true || door.outbound_available === true) {
-            div.appendChild(dispDr(door))
-        }
+        div.appendChild(dispDr(door))
     }
     return div
 
@@ -41,9 +41,4 @@ let doorWithOut = () =>{
 
 let doorWithIn = () => {
     return drs.filter(door => door.inbound_present === true || door.inbound_available === true)
-}
-
-let doorWithRack = () =>{
-    return drs.filter(door => door.racks === true)
-
 }

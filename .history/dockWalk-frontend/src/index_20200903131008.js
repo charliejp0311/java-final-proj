@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     button4.addEventListener('click',(e)=>{
         dispDrCards(doorWithRack(), "Racks")
     })
-    button4.innerText = "Racks"
+    button3.innerText = "Racks"
     h.appendChild(button1)
     h.appendChild(button2)
     h.appendChild(button3)

@@ -84,31 +84,18 @@ let doorForm = (door) => {
     submit.type = 'submit'
     submit.addEventListener('click', (e)=>{
         let formElmnts = e.target.parentNode.children
-        if (formElmnts.s_comments) {
-            let disc = new Discovery(door.section, door.range, door.number, formElmnts.racks.checked, formElmnts.stage.checked, formElmnts.serviceable.checked, formElmnts.s_comments.value, formElmnts.inbound_available.checked, formElmnts.inbound_present.checked, formElmnts.outbound_available.checked, formElmnts.outbound_present.checked)
-            let configObj = {
-                method: "POST",
-                headers: {
-                    "Content-Type":"application/json",
-                    "Accept":"application/json"
-                },
-                body: JSON.stringify(disc)
-            }; 
-            return fetch('http://localhost:3000/discoveries',configObj)
-        } else {
-            let disc = new Discovery(door.section, door.range, door.number, formElmnts.racks.checked, formElmnts.stage.checked, formElmnts.serviceable.checked, "", formElmnts.inbound_available.checked, formElmnts.inbound_present.checked, formElmnts.outbound_available.checked, formElmnts.outbound_present.checked)
-            let configObj = {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify(disc)
-            };
-            return fetch('http://localhost:3000/discoveries', configObj)
-        }
+        let disc = new Discovery(door.section, door.range, door.number, formElmnts.racks.checked, formElmnts.stage.checked, formElmnts.serviceable.checked, formElmnts.s_comments.value, formElmnts.inbound_available.checked, formElmnts.inbound_present.checked, formElmnts.outbound_available.checked, formElmnts.outbound_present.checked)
+        debugger
+        let configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json",
+                "Accept":"application/json"
+            },
+            body: JSON.stringify(disc)
+        }; 
+        return fetch('http://localhost:3000/discoveries',configObj)
     })
-    // debugger
     form.appendChild(submit)
     return form;
     
@@ -124,6 +111,7 @@ let dispDr = (door) => {
     let tbl = document.createElement('tbl')
     let tdk = document.createElement('td')
     let tde = document.createElement('td')
+    debugger
     if (door.serviceable) {
         for (const key in door) {
             if (door.hasOwnProperty(key)) {

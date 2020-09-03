@@ -56,14 +56,12 @@ let createDock = (docks) => {
 
     }//creates all docks
     // displays the docks 
-    displayDocks(dks) 
-}
-let displayDocks = (docks)=>{
-    
-    for (const dock of docks) {
+    for (const dock of dks) {
         dockCards(dock)
     }//sends all docks and their ranges to the dock card.
+
 }
+
 // gives the dock a section card might put the event listener here...... 
 let dispDk = (dock)=>{
     let div = document.createElement('div')
@@ -71,7 +69,7 @@ let dispDk = (dock)=>{
     div.innerText = dock.section
     div.id = dock.id
     div.addEventListener('click', (e) => {
-        displaySec(dks.filter(dk => dk.id === e.currentTarget.id)[0])
+        displaySec(dks.filter(dk => dk.id === e.target.id)[0])
     })
     for (const r of dock.ranges) {
         /// working here you are sending each docks range to create a range card

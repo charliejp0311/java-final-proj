@@ -26,24 +26,12 @@ let dispRng = (range) =>{
     div.className = "range"
     div.id = range.id
     div.innerText = range.range
+    div.addEventListener('click', (e) => {
+        displaySec(ranges.filter(rng => rng.id === e.currentTarget.id)[0])
+    })
     for (const door of range.doors) {
-        if (door.stage === true || door.racks === true || door.inbound_present === true || door.inbound_available === true || door.outbound_present === true || door.outbound_available === true) {
-            div.appendChild(dispDr(door))
-        }
+        div.appendChild(dispDr(door))
     }
     return div
-
-}
-
-let doorWithOut = () =>{
-    return drs.filter(door=>door.outbound_present===true || door.outbound_available===true)
-}
-
-let doorWithIn = () => {
-    return drs.filter(door => door.inbound_present === true || door.inbound_available === true)
-}
-
-let doorWithRack = () =>{
-    return drs.filter(door => door.racks === true)
 
 }

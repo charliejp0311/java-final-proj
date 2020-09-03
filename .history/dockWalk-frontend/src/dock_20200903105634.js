@@ -56,13 +56,13 @@ let createDock = (docks) => {
 
     }//creates all docks
     // displays the docks 
-    displayDocks(dks) 
-}
-let displayDocks = (docks)=>{
-    
-    for (const dock of docks) {
+    for (const dock of dks) {
         dockCards(dock)
     }//sends all docks and their ranges to the dock card.
+
+}
+let displayDocks = ()=>{
+    
 }
 // gives the dock a section card might put the event listener here...... 
 let dispDk = (dock)=>{

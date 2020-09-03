@@ -96,7 +96,7 @@ let doorForm = (door) => {
             }; 
             return fetch('http://localhost:3000/discoveries',configObj)
         } else {
-            let disc = new Discovery(door.section, door.range, door.number, formElmnts.racks.checked, formElmnts.stage.checked, formElmnts.serviceable.checked, "", formElmnts.inbound_available.checked, formElmnts.inbound_present.checked, formElmnts.outbound_available.checked, formElmnts.outbound_present.checked)
+            let disc = new Discovery(door.section, door.range, door.number, formElmnts.racks.checked, formElmnts.stage.checked, formElmnts.serviceable.checked, formElmnts.inbound_available.checked, formElmnts.inbound_present.checked, formElmnts.outbound_available.checked, formElmnts.outbound_present.checked)
             let configObj = {
                 method: "POST",
                 headers: {
@@ -108,7 +108,7 @@ let doorForm = (door) => {
             return fetch('http://localhost:3000/discoveries', configObj)
         }
     })
-    // debugger
+    debugger
     form.appendChild(submit)
     return form;
     

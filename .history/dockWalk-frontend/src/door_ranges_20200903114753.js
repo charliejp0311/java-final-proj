@@ -27,7 +27,7 @@ let dispRng = (range) =>{
     div.id = range.id
     div.innerText = range.range
     for (const door of range.doors) {
-        if (door.stage === true || door.racks === true || door.inbound_present === true || door.inbound_available === true || door.outbound_present === true || door.outbound_available === true) {
+        if (dr.inbound_present === true || dr.inbound_available === true || dr.outbound_present === true || dr.outbound_available === true) {
             div.appendChild(dispDr(door))
         }
     }
@@ -41,9 +41,4 @@ let doorWithOut = () =>{
 
 let doorWithIn = () => {
     return drs.filter(door => door.inbound_present === true || door.inbound_available === true)
-}
-
-let doorWithRack = () =>{
-    return drs.filter(door => door.racks === true)
-
 }

@@ -42,8 +42,3 @@ let doorWithOut = () =>{
 let doorWithIn = () => {
     return drs.filter(door => door.inbound_present === true || door.inbound_available === true)
 }
-
-let doorWithRack = () =>{
-    return drs.filter(door => door.racks === true)
-
-}

@@ -108,7 +108,7 @@ let doorForm = (door) => {
             return fetch('http://localhost:3000/discoveries', configObj)
         }
     })
-    // debugger
+    debugger
     form.appendChild(submit)
     return form;
     
