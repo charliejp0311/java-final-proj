@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #D40511;
+}
+
+header {
+    background-color: #FFCC00;
+    color: #D40511;
+    margin: 0 auto;
+    height: 75px;
+    width: fill;
+    text-align: center;
+}
+
+header h2 {
+    padding: 10px;
+    margin: 0;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 25px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+div.card {
+    background-color: #FFCC00;
+    height: auto;
+    width: auto;
+    box-shadow: 10px 10px grey;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+div.doorCard {
+    /* background-color: #D40511;
+    box-shadow: 10px 10px grey;
+    padding: 10px;
+    border-radius: 10px; */
+}
+
+p {
+    font-size: .75em;
+    color: black;
+    font-family: Helvetica;
+}
+ul {
+    padding: 20px;
+}
+td,th {
+    padding: 20px;
+    width: auto;
+    background-color: #FFCC00;
+}
+
+li {
+    font-size: 1.05em;
+    list-style: none;
+    padding-right: 20px;
+    text-align: center;
+}
+
+button {
+    font-size: 1em;
+    color: #FFCC00;
+    background-color: #D40511;
+    border-radius: 10px;
+    padding-bottom: 5px;
+}
+
+button.release {
+    float: right;
+    background-color: #E1332D;
+}
+
+@media only screen and (min-width: 500px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 850px) {
+    main {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
