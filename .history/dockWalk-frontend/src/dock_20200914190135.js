@@ -126,14 +126,20 @@ let searchBar = () => {
 }
 
 let findSec = (section, inVal) =>{
-    let sec = section.section.toLowerCase()
-    if (inVal.length > 1) {
-        if (sec.slice(0, inVal.length).toLowerCase() === inVal.toLowerCase()){
-            return section
-        }
-    }else{
-        if (sec.slice(0, inVal.length)[0].toLowerCase() === inVal.toLowerCase()){
-            return section
+    let sec = section.section.split('')
+    let searchVal = inVal.split('')
+    for (let i = 0; i < searchVal.length; i++) {
+        const v = searchVal[i];
+        if (i>=1){
+            //test all letters given
+            if (sec.slice(0, i + 1).join('').toLowerCase() === searchVal.slice(0, i + 1).join('').toLowerCase()) {
+                debugger
+                return section
+            } 
+        } else{
+            if (v.toLowerCase() === sec[i].toLowerCase()) {
+                return section
+            } 
         }
     }
 }

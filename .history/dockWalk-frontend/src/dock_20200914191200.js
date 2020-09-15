@@ -126,16 +126,19 @@ let searchBar = () => {
 }
 
 let findSec = (section, inVal) =>{
-    let sec = section.section.toLowerCase()
-    if (inVal.length > 1) {
-        if (sec.slice(0, inVal.length).toLowerCase() === inVal.toLowerCase()){
-            return section
-        }
-    }else{
-        if (sec.slice(0, inVal.length)[0].toLowerCase() === inVal.toLowerCase()){
-            return section
-        }
+    let sec = section.section.split('')
+    if (sec.slice(0, inVal.length)[0].toLowerCase() === inVal.toLowerCase()){
+        return section
     }
+    // debugger
+    // for (let i = 0; i < searchVal.length; i++) {
+    //     const v = searchVal[i];
+    //     //test all letters given
+    //     if (sec.slice(0, i + 1).join('').toLowerCase() === searchVal.slice(0, i + 1).join('').toLowerCase()) {
+    //         return section
+    //     } 
+       
+    // }
 }
 
 let fetchDocks = () => {

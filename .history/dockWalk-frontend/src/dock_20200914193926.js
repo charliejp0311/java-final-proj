@@ -136,6 +136,15 @@ let findSec = (section, inVal) =>{
             return section
         }
     }
+    // debugger
+    // for (let i = 0; i < searchVal.length; i++) {
+    //     const v = searchVal[i];
+    //     //test all letters given
+    //     if (sec.slice(0, i + 1).join('').toLowerCase() === searchVal.slice(0, i + 1).join('').toLowerCase()) {
+    //         return section
+    //     } 
+       
+    // }
 }
 
 let fetchDocks = () => {

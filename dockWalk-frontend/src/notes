@@ -1,0 +1,5 @@
+need a search bar on the docks that returns as you type the door ranges
+
+create a input object on page for search
+create event listener that returns dock obj that have a section that contains input
+

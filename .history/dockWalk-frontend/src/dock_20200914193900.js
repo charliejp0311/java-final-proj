@@ -119,6 +119,9 @@ let searchBar = () => {
         dock.innerHTML = ""
         let filteredDocks
         filteredDocks = dks.filter(section => findSec(section, e.target.value))
+        if (e.target.value.length > 1) {
+            debugger
+        }
         displayDocks(filteredDocks)
     })
 
@@ -136,6 +139,15 @@ let findSec = (section, inVal) =>{
             return section
         }
     }
+    // debugger
+    // for (let i = 0; i < searchVal.length; i++) {
+    //     const v = searchVal[i];
+    //     //test all letters given
+    //     if (sec.slice(0, i + 1).join('').toLowerCase() === searchVal.slice(0, i + 1).join('').toLowerCase()) {
+    //         return section
+    //     } 
+       
+    // }
 }
 
 let fetchDocks = () => {

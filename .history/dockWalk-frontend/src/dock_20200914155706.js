@@ -58,7 +58,6 @@ let createDock = (docks) => {
     // displays the docks 
     displayDocks(dks) 
 }
-
 let displayDocks = (docks)=>{
     
     for (const dock of docks) {
@@ -115,25 +114,27 @@ let searchBar = () => {
     inputBox.type = 'text'
     inputBox.addEventListener('keyup',(e)=>{
         // I want to search all docks for there sections and parse the section title from them here
+        let filteredDocks = dks.filter(section=> findSec(section, e.target.value))
         let dock = document.getElementById('dock')
-        dock.innerHTML = ""
-        let filteredDocks
-        filteredDocks = dks.filter(section => findSec(section, e.target.value))
-        displayDocks(filteredDocks)
+        dock.innerText = ""
+        for (const d of filteredDocks) {
+            dock.appendChild(dockCards(d))
+        }
+        // debugger
     })
 
     return inputBox
 }
 
-let findSec = (section, inVal) =>{
-    let sec = section.section.toLowerCase()
-    if (inVal.length > 1) {
-        if (sec.slice(0, inVal.length).toLowerCase() === inVal.toLowerCase()){
+let findSec = (section, inval) =>{
+    let sec = section.section.split('')
+    let searchval = inval.split('')
+    for (let i = 0; i < searchval.length; i++) {
+        const v = searchval[i];
+        if (v.toLowerCase() === sec[i].toLowerCase()) {
             return section
-        }
-    }else{
-        if (sec.slice(0, inVal.length)[0].toLowerCase() === inVal.toLowerCase()){
-            return section
+        } else {
+            break
         }
     }
 }

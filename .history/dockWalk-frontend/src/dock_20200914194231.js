@@ -131,6 +131,8 @@ let findSec = (section, inVal) =>{
         if (sec.slice(0, inVal.length).toLowerCase() === inVal.toLowerCase()){
             return section
         }
+    }else if(inVal.length === 0){
+        fetchDocks()
     }else{
         if (sec.slice(0, inVal.length)[0].toLowerCase() === inVal.toLowerCase()){
             return section
